@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <title>Random sampling and sampling distributions</title>
+  <title>Asymptotic sampling distributions</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -455,7 +455,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 
 <section>
 <h1>
-Random sampling and sampling distributions
+Asymptotic sampling distributions
 </h1>
 <p>Based on Stock and Watson, ch. 3</p>
 <p><br></p>
@@ -466,66 +466,68 @@ Random sampling and sampling distributions
 EC2203 | Royal Holloway | 2020/21
 </h3>
 </section>
-<!-- ## Statistics -->
-<!-- - Probability theory provide us with concepts that allow us to describe and analyze situations involving randomness -->
-<!--   For example, the mean and variance of a random variable -->
-<!-- - Probability theory does not tell us how to **quantify**, say, the mean and variance of a random variable. -->
-<!--   For that, we need statistics  -->
 </section>
-<section><section id="random-sampling" class="title-slide slide level1"><h1>Random sampling</h1></section><section id="population-and-sample" class="slide level2">
-<h2>Population and sample</h2>
+<section><section id="asymptotic-sampling-distributions" class="title-slide slide level1"><h1>Asymptotic sampling distributions</h1></section><section id="large-sample-approximations" class="slide level2">
+<h2>Large-sample approximations</h2>
 <ul>
-<li><p>The <strong>population</strong> is the entire pool from which a statistical sample is drawn (people, firms, objects, events, etc.)</p></li>
-<li><p>The <strong>sample</strong> is a subset of the population</p></li>
-<li><p>Statistics and econometrics deal with what we can learn about the population from a sample</p></li>
-</ul>
-</section><section id="simple-random-sampling" class="slide level2">
-<h2>Simple random sampling</h2>
+<li><p>Random sampling induces a sampling distribution of any statistic computed on the sample, for example <span class="math inline">\(\overline{Y}\)</span></p></li>
+<li><p>Almost always unable to compute exact sampling distribution of <span class="math inline">\(\overline{Y}\)</span> or any other statistic of interest.</p></li>
+<li><p>Resort to <strong>large-sample approximations</strong>: compute the <strong>asymptotic distribution</strong> as <span class="math inline">\(n\)</span> grows large</p></li>
+<li><p>Key tools for large-sample approximations:</p>
 <ul>
-<li><p>Suppose we are interested in the random variable <span class="math inline">\(Y\)</span> in some population.</p></li>
-<li><p>Sample <span class="math inline">\(n\)</span> objects selected <strong>at random</strong> from a population</p></li>
-<li><p>Each population-member is <strong>equally likely to be included</strong></p></li>
-<li><p>Record <span class="math inline">\(Y\)</span> for each member of the sample. The size-<span class="math inline">\(n\)</span> sample is <span class="math inline">\(\{Y_i; i=1,...,n\}\)</span></p></li>
+<li><p>The Law of Large Numbers</p></li>
+<li><p>The Central Limit Theorem</p></li>
+</ul></li>
 </ul>
-<!-- ## A random sample -->
-<!-- - The sample $\{Y_i; i=1,...,n\}$ is obtained by sampling $Y$, a **single** random variable,  **$n$ times** -->
-<!-- - A different sample obtains if we redo sampling: treat the sample as a **collection of $n$ random variables** -->
-<!-- <!-- - The adjective **random** in "random sample" refers to the way the sample is obtained, not the realized sample -->
-</section><section id="i.i.d.-sample" class="slide level2">
-<h2>i.i.d. sample</h2>
+</section><section id="notation" class="slide level2">
+<h2>Notation</h2>
 <ul>
-<li><p>Simple random sampling means that <span class="math inline">\(\{Y_i; i=1,...,n\}\)</span> should be treated as a <strong>collection of <span class="math inline">\(n\)</span> random variables</strong></p></li>
-<li><p>Because <span class="math inline">\(\{Y_i; i=1,...,n\}\)</span> is drawn at random from the same population, the <span class="math inline">\(Y_i\)</span>’s are <strong>identically distributed</strong></p>
-<p><span class="math display">\[f_{Y_i}(y) = f_{Y}(y); \quad i=1,2,...,n\]</span></p></li>
-<li><p>Under simple random sampling, the <span class="math inline">\(Y_i\)</span>’s are <strong>independent</strong>: knowning <span class="math inline">\(Y_i\)</span> provides no information on <span class="math inline">\(Y_j\)</span> for <span class="math inline">\(j \neq i\)</span></p></li>
-<li><p>We say that simple random sampling produces an <strong>independently and identically distributed (i.i.d.) sample</strong></p></li>
+<li><p>Suppose we are interested in a random variable <span class="math inline">\(Y\)</span> with population distribution <span class="math inline">\(f_Y(y)\)</span>. Suppose that</p>
+<p><span class="math display">\[\mathrm{E}(Y)=\mu_Y; \quad \mathrm{var}(Y) = \sigma_Y^2\]</span></p></li>
+<li><p>We have a size-<span class="math inline">\(n\)</span> i.i.d. sample of <span class="math inline">\(Y\)</span>: <span class="math inline">\(\{Y_i;i=1,...,n\}\)</span></p></li>
+<li><p>We want to understand the large-sample (<span class="math inline">\(n \rightarrow \infty\)</span>) properties of the sample average</p>
+<p><span class="math display">\[\overline{Y} = \frac{1}{n} \sum_{i=1}^n Y_i\]</span></p></li>
 </ul>
-</section></section>
-<section><section id="sampling-distributions" class="title-slide slide level1"><h1>Sampling distributions</h1></section><section id="the-sample-average-and-its-distribution" class="slide level2">
-<h2>The sample average and its distribution</h2>
-<!-- - All the econometric procedures we consider in EC2203 involves taking (weighted) averages of sampled data -->
+</section><section id="the-law-of-large-numbers" class="slide level2">
+<h2>The Law of Large Numbers</h2>
 <ul>
-<li><p>The <strong>simple sample average</strong> is</p>
-<p><span class="math display">\[\overline{Y} = \frac{1}{n}\sum_{i=1}^n Y_i\]</span></p></li>
-<li><p>Because <span class="math inline">\(\{Y_i; i=1,...,n\}\)</span> is a collection of random variables, <span class="math inline">\(\overline{Y}\)</span> is also a random variable</p></li>
-<li><p>The distribution of <span class="math inline">\(\overline{Y}\)</span>, induced by random sampling, is denoted the <strong>sampling distribution</strong></p></li>
+<li><p>The <strong>Law of Large Numbers (LLN)</strong> states conditions under which <span class="math inline">\(\overline{Y}\)</span> is very close to <span class="math inline">\(\mu_Y\)</span> when <span class="math inline">\(n\)</span> is large.</p></li>
+<li><p>“Very close to” means that the probability that <span class="math inline">\(\overline{Y}\)</span> takes a value that is very close to <span class="math inline">\(\mu_Y\)</span> is very close to 1</p></li>
+<li><p>We use the shorthand <span class="math inline">\(\overline{Y} -\mu_Y \overset{p}{\rightarrow} 0\)</span> and say that <span class="math inline">\(\overline{Y}\)</span> <strong>converges in probability</strong> to <span class="math inline">\(\mu_Y\)</span>.</p></li>
+<li><p>LLN justifies replacing a population mean, like <span class="math inline">\(\mu_Y\)</span>, by the corresponding sample average, <span class="math inline">\(\overline{Y}\)</span> in the statistical analysis</p></li>
 </ul>
-</section><section id="the-mean-and-variance-of-the-sample-average" class="slide level2">
-<h2>The mean and variance of the sample average</h2>
+</section><section id="the-law-of-large-numbers-1" class="slide level2">
+<h2>The Law of Large Numbers</h2>
 <div class="box">
-<p>Let <span class="math inline">\(\{Y_i; i=1,2,...,n\}\)</span> be an i.i.d. sample with</p>
-<p><span class="math display">\[\mathrm{E}(Y)=\mu_Y; \quad \mathrm{var}(Y)=\sigma_Y^2,\]</span> and consider the sample average <span class="math inline">\(\overline{Y} = \frac{1}{n}\sum_{i=1}^n Y_i\)</span>. Then,</p>
-<p><span class="math display">\[\mathrm{E}(\overline{Y}) = \mu_Y; \quad \mathrm{var}(\overline{Y}) = \frac{1}{n}\sigma^2_Y\]</span></p>
-<p>We sometimes denote <span class="math inline">\(\mathrm{var}(\overline{Y})\)</span> by <span class="math inline">\(\sigma^2_\overline{Y}\)</span>.</p>
+<p>Let <span class="math inline">\(\{Y_i; i=1,...,n\}\)</span> be a sequence of i.i.d. random variables with <span class="math inline">\(\mathrm{E}(Y_i) = \mu_Y\)</span> and <span class="math inline">\(\mathrm{var}(Y_i) = \sigma^2_Y\)</span>. If <span class="math inline">\(\sigma^2_Y &lt; \infty\)</span>, then as <span class="math inline">\(n \rightarrow \infty\)</span></p>
+<p><span class="math display">\[P(- \epsilon &lt; \overline{Y} - \mu_Y&lt; \epsilon) \rightarrow 1,\]</span></p>
+<p>for <strong>any</strong> <span class="math inline">\(\epsilon &gt; 0\)</span>. Write <span class="math inline">\(\overline{Y} - \mu_Y \overset{p}{\rightarrow} 0\)</span>.</p>
+</div>
+</section><section id="the-central-limit-theorem" class="slide level2">
+<h2>The Central Limit Theorem</h2>
+<ul>
+<li><p>The <strong>Central Limit Theorem (CLT)</strong> states conditions such that the distribution of <span class="math inline">\((\overline{Y} - \mu_Y)/\sigma_\overline{Y}\)</span> is very close to the standard normal distribution when <span class="math inline">\(n\)</span> is large</p></li>
+<li><p>The CLT justifies the use of</p>
+<p><span class="math display">\[\overline{Y} \sim \mathcal{N}(\mu_Y,\sigma_\overline{Y}^2); \quad \sigma_\overline{Y}^2 = \frac{1}{n}\sigma_Y^2\]</span></p>
+<p>to approximate the exact sampling distribution of <span class="math inline">\(\overline{Y}\)</span></p></li>
+</ul>
+<!-- - Remarkably, the approximation does not depend on the distribution of the individual $Y_i$'s in $\overline{Y}$. -->
+</section><section id="the-central-limit-theorem-1" class="slide level2">
+<h2>The Central Limit Theorem</h2>
+<div class="box">
+<p>Let <span class="math inline">\(\{Y_i; i=1,...,n\}\)</span> be i.i.d. random variables with <span class="math inline">\(\mathrm{E}(Y_i) = \mu_Y\)</span> and <span class="math inline">\(\mathrm{var}(Y_i) = \sigma^2_Y\)</span>. If <span class="math inline">\(\sigma^2_Y &lt; \infty\)</span>, then</p>
+<p><span class="math display">\[\sqrt{n}(\overline{Y} - \mu_Y) \overset{d}{\rightarrow} \mathcal{N}(0,\sigma_Y^2).\]</span></p>
+<p>We say that <span class="math inline">\(\sqrt{n}(\overline{Y} - \mu_Y)\)</span> <strong>converges in distribution</strong> to the normal distribution <span class="math inline">\(\mathcal{N}(0,\sigma_Y^2)\)</span></p>
 </div>
 </section></section>
 <section><section id="summary" class="title-slide slide level1"><h1>Summary</h1></section><section id="summary-1" class="slide level2">
 <h2>Summary</h2>
 <ul>
-<li><p>Random sampling means that each population-member is equally likely to be included in the sample</p></li>
-<li><p>A sample should be viewed as a collection of random variables when we think about econometric analysis and econometric techniques</p></li>
-<li><p>Simple random sampling produces an i.i.d. sample</p></li>
-<li><p>Random sampling induces a probability distribution on any statistics computed on the sample, e.g. the average.</p></li>
+<li><p>Finite-<span class="math inline">\(n\)</span> sampling distributions are complicated, but large-<span class="math inline">\(n\)</span> approximations based on LLN and CLT usually works well</p></li>
+<li><p>The Law of Large Numbers gives conditions such that <span class="math inline">\(\overline{Y}\)</span> is very close to <span class="math inline">\(\mu_Y\)</span> in large samples</p>
+<p>Justifies replacing an unknown population mean <span class="math inline">\(\mu_Y\)</span> by the known sample average <span class="math inline">\(\overline{Y}\)</span> in the statistical analysis</p></li>
+<li><p>The Central Limit Theorem gives conditions so distribution of <span class="math inline">\((\overline{Y} - \mu_Y)/\sigma_\overline{Y}\)</span> is close to <span class="math inline">\(\mathcal{N}(0,1)\)</span> in large samples</p>
+<p>Justifies using Normal distribution for statistical inference</p></li>
 </ul>
 </section></section>
     </div>

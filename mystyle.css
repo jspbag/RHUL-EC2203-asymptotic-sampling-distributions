@@ -22,7 +22,7 @@ blockquote {
     margin: 0.5em;
     padding: 0.5em 2em 0.5em 3em;
 }
-/* Thanks: http://callmenick.com/post/styling-blockquotes-with-css-pseudo-classes */
+/* Thanks: http://callmenick.com/post/styling-blockquotes -with-css-pseudo-classes */
 blockquote:before {
     font-family: Georgia, serif;
     position: absolute;
