@@ -1,5 +1,5 @@
 ---
-pagetitle: Asymptotic sampling distributions
+pagetitle: Random sampling and sampling distributions
 output: 
   revealjs::revealjs_presentation:
     incremental: false
@@ -27,7 +27,7 @@ output:
 
 <section>
 
-<h1>Asymptotic sampling distributions</h1>
+<h1>Random sampling and sampling distributions</h1>
 
 Based on Stock and Watson, ch. 3
 
@@ -39,90 +39,95 @@ Based on Stock and Watson, ch. 3
 
 </section>
 
-# Asymptotic sampling distributions
+<!-- ## Statistics -->
 
-## Large-sample approximations
+<!-- - Probability theory provide us with concepts that allow us to describe and analyze situations involving randomness -->
 
-- Random sampling induces a sampling distribution of any statistic computed on the sample, for example $\overline{Y}$
+<!--   For example, the mean and variance of a random variable -->
 
-- Almost always unable to compute exact sampling distribution of $\overline{Y}$ or any other statistic of interest.
+<!-- - Probability theory does not tell us how to **quantify**, say, the mean and variance of a random variable. -->
 
-- Resort to **large-sample approximations**: compute the **asymptotic distribution** as $n$ grows large
+<!--   For that, we need statistics  -->
 
-- Key tools for large-sample approximations:
+# Random sampling
 
-  - The Law of Large Numbers
+## Population and sample
+
+- The **population** is the entire pool from which a statistical sample is drawn (people, firms, objects, events, etc.)
+
+- The **sample** is a subset of the population
+
+- Statistics and econometrics deal with what we can learn about the population from a sample
+
+## Simple random sampling
+
+- Suppose we are interested in the random variable $Y$ in some population. 
+
+- Sample $n$ objects selected **at random** from a population
+
+- Each population-member is **equally likely to be included**
+
+- Record $Y$ for each member of the sample. The size-$n$ sample is $\{Y_i; i=1,...,n\}$
+
+<!-- ## A random sample -->
+
+<!-- - The sample $\{Y_i; i=1,...,n\}$ is obtained by sampling $Y$, a **single** random variable,  **$n$ times** -->
+
+<!-- - A different sample obtains if we redo sampling: treat the sample as a **collection of $n$ random variables** -->
+
+<!-- <!-- - The adjective **random** in "random sample" refers to the way the sample is obtained, not the realized sample -->
+
+## i.i.d. sample
+
+- Simple random sampling means that $\{Y_i; i=1,...,n\}$ should be treated as a **collection of $n$ random variables**
+
+- Because $\{Y_i; i=1,...,n\}$ is drawn at random from the same population, the $Y_i$'s are **identically distributed**
+
+  $$f_{Y_i}(y) = f_{Y}(y); \quad i=1,2,...,n$$ 
   
-  - The Central Limit Theorem
-  
-## Notation
+- Under simple random sampling, the $Y_i$'s are **independent**: knowning $Y_i$ provides no information on $Y_j$ for $j \neq i$
 
-- Suppose we are interested in a random variable $Y$ with population distribution $f_Y(y)$. Suppose that 
+- We say that simple random sampling produces an **independently and identically distributed (i.i.d.) sample**
 
-  $$\mathrm{E}(Y)=\mu_Y; \quad \mathrm{var}(Y) = \sigma_Y^2$$
+# Sampling distributions
 
-- We have a size-$n$ i.i.d. sample of $Y$: $\{Y_i;i=1,...,n\}$
+## The sample average and its distribution
 
-- We want to understand the large-sample ($n \rightarrow \infty$) properties of the sample average
+<!-- - All the econometric procedures we consider in EC2203 involves taking (weighted) averages of sampled data -->
 
-  $$\overline{Y} = \frac{1}{n} \sum_{i=1}^n Y_i$$
-  
-## The Law of Large Numbers
+- The **simple sample average** is
 
-- The **Law of Large Numbers (LLN)** states conditions under which $\overline{Y}$ is very close to $\mu_Y$ when $n$ is large.
+  $$\overline{Y} = \frac{1}{n}\sum_{i=1}^n Y_i$$
 
-- "Very close to" means that the probability that $\overline{Y}$ takes a value that is very close to $\mu_Y$ is very close to 1
+- Because $\{Y_i; i=1,...,n\}$ is a collection of random variables, $\overline{Y}$ is also a random variable
 
-- We use the shorthand $\overline{Y} \overset{p}{\rightarrow} \mu_Y$ and say that $\overline{Y}$ **converges in probability** to $\mu_Y$.
+- The distribution of $\overline{Y}$, induced by random sampling, is denoted the **sampling distribution**
 
-- LLN justifies replacing a population mean, like $\mu_Y$, by the corresponding sample average, $\overline{Y}$ in the statistical analysis
-
-## The Law of Large Numbers
+## The mean and variance of the sample average
 
 <div class="box">
+Let $\{Y_i; i=1,2,...,n\}$ be an i.i.d. sample with
 
-Let $\{Y_i; i=1,...,n\}$ be i.i.d. random variables with $\mathrm{E}(Y_i) = \mu_Y$ and $\mathrm{var}(Y_i) = \sigma^2_Y$. If $\sigma^2_Y < \infty$, then
+$$\mathrm{E}(Y)=\mu_Y; \quad \mathrm{var}(Y)=\sigma_Y^2,$$
+and consider the sample average $\overline{Y} = \frac{1}{n}\sum_{i=1}^n Y_i$. Then,
 
-$$P(\mu_Y - \epsilon < \overline{Y} < \mu_Y + \epsilon) \rightarrow 1,$$
+$$\mathrm{E}(\overline{Y}) = \mu_Y; \quad \mathrm{var}(\overline{Y}) = \frac{1}{n}\sigma^2_Y$$
 
-for any $\epsilon > 0$, as $n \rightarrow \infty$. Write $\overline{Y} \overset{p}{\rightarrow} \mu_Y$.
+We sometimes denote $\mathrm{var}(\overline{Y})$ by $\sigma^2_\overline{Y}$.
 
 </div>
 
-## The Central Limit Theorem
 
-- The **Central Limit Theorem (CLT)** states conditions such that the distribution of $(\overline{Y} - \mu_Y)/\sigma_\overline{Y}$ is very close to the standard normal distribution when $n$ is large
-
-- The CLT justifies the use of 
-
-  $$\overline{Y} \sim \mathcal{N}(\mu_Y,\sigma_\overline{Y}^2); \quad \sigma_\overline{Y}^2 = \frac{1}{n}\sigma_Y^2$$
-
-  to approximate the exact sampling distribution of $\overline{Y}$
-
-<!-- - Remarkably, the approximation does not depend on the distribution of the individual $Y_i$'s in $\overline{Y}$. -->
-
-## The Central Limit Theorem
-
-<div class="box">
-
-Let $\{Y_i; i=1,...,n\}$ be i.i.d. random variables with $\mathrm{E}(Y_i) = \mu_Y$ and $\mathrm{var}(Y_i) = \sigma^2_Y$. If $\sigma^2_Y < \infty$, then
-
-$$\sqrt{n}(\overline{Y} - \mu_Y) \overset{d}{\rightarrow} \mathcal{N}(0,\sigma_Y^2).$$
-
-We say that $\sqrt{n}(\overline{Y} - \mu_Y)$ **converges in distribution** to the normal distribution $\mathcal{N}(0,\sigma_Y^2)$
-
-</div>
 
 # Summary
 
 ## Summary
 
-- Finite-$n$ sampling distributions are complicated, but large-$n$ approximations based on LLN and CLT usually works well 
+- Random sampling means that each population-member is equally likely to be included in the sample
 
-- The Law of Large Numbers gives conditions such that $\overline{Y}$ is very close to $\mu_Y$ in large samples 
+- A sample should be viewed as a collection of random variables when we think about econometric analysis and econometric techniques
 
-  Justifies replacing an unknown population mean $\mu_Y$ by the known sample average $\overline{Y}$ in the statistical analysis
+- Simple random sampling produces an i.i.d. sample 
 
-- The Central Limit Theorem gives conditions so distribution of $(\overline{Y} - \mu_Y)/\sigma_\overline{Y}$ is close to $\mathcal{N}(0,1)$ in large samples
+- Random sampling induces a probability distribution on any statistics computed on the sample, e.g. the average.
 
-  Justifies using Normal distribution for statistical inference
