@@ -479,6 +479,15 @@ EC2203 | Royal Holloway | 2020/21
 <li><p>The Central Limit Theorem</p></li>
 </ul></li>
 </ul>
+</section><section id="notation" class="slide level2">
+<h2>Notation</h2>
+<ul>
+<li><p>Suppose we are interested in a random variable <span class="math inline">\(Y\)</span> with population distribution <span class="math inline">\(f_Y(y)\)</span>. Suppose that</p>
+<p><span class="math display">\[\mathrm{E}(Y)=\mu_Y; \quad \mathrm{var}(Y) = \sigma_Y^2\]</span></p></li>
+<li><p>We have a size-<span class="math inline">\(n\)</span> i.i.d. sample of <span class="math inline">\(Y\)</span>: <span class="math inline">\(\{Y_i;i=1,...,n\}\)</span></p></li>
+<li><p>We want to understand the large-sample (<span class="math inline">\(n \rightarrow \infty\)</span>) properties of the sample average</p>
+<p><span class="math display">\[\overline{Y} = \frac{1}{n} \sum_{i=1}^n Y_i\]</span></p></li>
+</ul>
 </section><section id="the-law-of-large-numbers" class="slide level2">
 <h2>The Law of Large Numbers</h2>
 <ul>
@@ -491,8 +500,8 @@ EC2203 | Royal Holloway | 2020/21
 <h2>The Law of Large Numbers</h2>
 <div class="box">
 <p>Let <span class="math inline">\(\{Y_i; i=1,...,n\}\)</span> be i.i.d. random variables with <span class="math inline">\(\mathrm{E}(Y_i) = \mu_Y\)</span> and <span class="math inline">\(\mathrm{var}(Y_i) = \sigma^2_Y\)</span>. If <span class="math inline">\(\sigma^2_Y &lt; \infty\)</span>, then</p>
-<p><span class="math display">\[P(\mu_Y - \epsilon &lt; \overline{Y} &lt; \mu_Y + \epsilon) \rightarrow 1\]</span></p>
-<p>for any <span class="math inline">\(\epsilon &gt; 0\)</span>. Write <span class="math inline">\(\overline{Y} \overset{p}{\rightarrow} \mu_Y\)</span>.</p>
+<p><span class="math display">\[P(\mu_Y - \epsilon &lt; \overline{Y} &lt; \mu_Y + \epsilon) \rightarrow 1,\]</span></p>
+<p>for any <span class="math inline">\(\epsilon &gt; 0\)</span>, as <span class="math inline">\(n \rightarrow \infty\)</span>. Write <span class="math inline">\(\overline{Y} \overset{p}{\rightarrow} \mu_Y\)</span>.</p>
 </div>
 </section><section id="the-central-limit-theorem" class="slide level2">
 <h2>The Central Limit Theorem</h2>

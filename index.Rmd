@@ -55,6 +55,18 @@ Based on Stock and Watson, ch. 3
   
   - The Central Limit Theorem
   
+## Notation
+
+- Suppose we are interested in a random variable $Y$ with population distribution $f_Y(y)$. Suppose that 
+
+  $$\mathrm{E}(Y)=\mu_Y; \quad \mathrm{var}(Y) = \sigma_Y^2$$
+
+- We have a size-$n$ i.i.d. sample of $Y$: $\{Y_i;i=1,...,n\}$
+
+- We want to understand the large-sample ($n \rightarrow \infty$) properties of the sample average
+
+  $$\overline{Y} = \frac{1}{n} \sum_{i=1}^n Y_i$$
+  
 ## The Law of Large Numbers
 
 - The **Law of Large Numbers (LLN)** states conditions under which $\overline{Y}$ is very close to $\mu_Y$ when $n$ is large.
@@ -71,9 +83,9 @@ Based on Stock and Watson, ch. 3
 
 Let $\{Y_i; i=1,...,n\}$ be i.i.d. random variables with $\mathrm{E}(Y_i) = \mu_Y$ and $\mathrm{var}(Y_i) = \sigma^2_Y$. If $\sigma^2_Y < \infty$, then
 
-$$P(\mu_Y - \epsilon < \overline{Y} < \mu_Y + \epsilon) \rightarrow 1$$
+$$P(\mu_Y - \epsilon < \overline{Y} < \mu_Y + \epsilon) \rightarrow 1,$$
 
-for any $\epsilon > 0$. Write $\overline{Y} \overset{p}{\rightarrow} \mu_Y$.
+for any $\epsilon > 0$, as $n \rightarrow \infty$. Write $\overline{Y} \overset{p}{\rightarrow} \mu_Y$.
 
 </div>
 
