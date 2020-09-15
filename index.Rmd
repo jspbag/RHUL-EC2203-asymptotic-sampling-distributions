@@ -47,7 +47,7 @@ Based on Stock and Watson, ch. 3
 
 - Almost always unable to compute exact sampling distribution of $\overline{Y}$ or any other statistic of interest.
 
-- Resort to **large-sample approximations**: compute the **asymptotic distribution** as $n$ grows large
+- Compute the **asymptotic distribution** as $n$ grows large
 
 - Key tools for large-sample approximations:
 
@@ -59,7 +59,7 @@ Based on Stock and Watson, ch. 3
 
 - Suppose we are interested in a random variable $Y$ with population distribution $f_Y(y)$. Suppose that 
 
-  $$\mathrm{E}(Y)=\mu_Y; \quad \mathrm{var}(Y) = \sigma_Y^2$$
+  $$\mathrm{E}(Y)=\mu_Y; \quad \mathrm{var}(Y) = \sigma_Y^2< \infty$$
 
 - We have a size-$n$ i.i.d. sample of $Y$: $\{Y_i;i=1,...,n\}$
 
