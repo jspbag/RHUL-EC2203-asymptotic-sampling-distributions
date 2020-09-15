@@ -121,8 +121,6 @@ Based on Stock and Watson, ch. 3
 
 - The Law of Large Numbers gives conditions such that $\overline{Y}$ is very close to $\mu_Y$ in large samples 
 
-  Justifies replacing an unknown population mean $\mu_Y$ by the known sample average $\overline{Y}$ in the statistical analysis
+  Justifies replacing the unknown population mean $\mu_Y$ by the known sample average $\overline{Y}$
 
-- The Central Limit Theorem gives conditions so distribution of $(\overline{Y} - \mu_Y)/\sigma_\overline{Y}$ is close to $\mathcal{N}(0,1)$ in large samples
-
-  Justifies using Normal distribution for statistical inference
+- The Central Limit Theorem allow us to contruct an approximation to the unknown sampling distribution of $\overline{Y}$
