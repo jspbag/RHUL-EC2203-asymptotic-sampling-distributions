@@ -91,7 +91,7 @@ Based on Stock and Watson, ch. 3
 
 ## The Central Limit Theorem
 
-- The **Central Limit Theorem (CLT)** states conditions such that the distribution of $\sqrt{n}(\overline{Y} - \mu_Y)/\sigma_Y$ is very close to the standard normal distribution when $n$ is large
+- The **Central Limit Theorem (CLT)** states conditions such that the distribution of $\sqrt{n}(\overline{Y} - \mu_Y)$ is very close to a $\mathcal{N}(0,\sigma_Y^2)$-distributed random variable when $n$ is large
 
 - The CLT justifies the use of 
 
