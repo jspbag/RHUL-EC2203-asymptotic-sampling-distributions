@@ -77,21 +77,21 @@ Based on Stock and Watson, ch. 3
 
 - LLN justifies replacing a population mean, like $\mu_Y$, by the corresponding sample average, $\overline{Y}$ in the statistical analysis
 
-## The Law of Large Numbers
+<!-- ## The Law of Large Numbers -->
 
-<div class="box">
+<!-- <div class="box"> -->
 
-Let $\{Y_i; i=1,...,n\}$ be a sequence of i.i.d. random variables with $\mathrm{E}(Y_i) = \mu_Y$ and $\mathrm{var}(Y_i) = \sigma^2_Y$. If $\sigma^2_Y < \infty$, then as $n \rightarrow \infty$
+<!-- Let $\{Y_i; i=1,...,n\}$ be a sequence of i.i.d. random variables with $\mathrm{E}(Y_i) = \mu_Y$ and $\mathrm{var}(Y_i) = \sigma^2_Y$. If $\sigma^2_Y < \infty$, then as $n \rightarrow \infty$ -->
 
-$$P(- \epsilon < \overline{Y} - \mu_Y< \epsilon) \rightarrow 1,$$
+<!-- $$P(- \epsilon < \overline{Y} - \mu_Y< \epsilon) \rightarrow 1,$$ -->
 
-for **any** $\epsilon > 0$. Write $\overline{Y} - \mu_Y \overset{p}{\rightarrow} 0$.
+<!-- for **any** $\epsilon > 0$. Write $\overline{Y} - \mu_Y \overset{p}{\rightarrow} 0$. -->
 
-</div>
+<!-- </div> -->
 
 ## The Central Limit Theorem
 
-- The **Central Limit Theorem (CLT)** states conditions such that the distribution of $(\overline{Y} - \mu_Y)/\sigma_\overline{Y}$ is very close to the standard normal distribution when $n$ is large
+- The **Central Limit Theorem (CLT)** states conditions such that the distribution of $\sqrt{n}(\overline{Y} - \mu_Y)/\sigma_Y$ is very close to the standard normal distribution when $n$ is large
 
 - The CLT justifies the use of 
 
@@ -101,17 +101,17 @@ for **any** $\epsilon > 0$. Write $\overline{Y} - \mu_Y \overset{p}{\rightarrow}
 
 <!-- - Remarkably, the approximation does not depend on the distribution of the individual $Y_i$'s in $\overline{Y}$. -->
 
-## The Central Limit Theorem
+<!-- ## The Central Limit Theorem -->
 
-<div class="box">
+<!-- <div class="box"> -->
 
-Let $\{Y_i; i=1,...,n\}$ be i.i.d. random variables with $\mathrm{E}(Y_i) = \mu_Y$ and $\mathrm{var}(Y_i) = \sigma^2_Y$. If $\sigma^2_Y < \infty$, then
+<!-- Let $\{Y_i; i=1,...,n\}$ be i.i.d. random variables with $\mathrm{E}(Y_i) = \mu_Y$ and $\mathrm{var}(Y_i) = \sigma^2_Y$. If $\sigma^2_Y < \infty$, then -->
 
-$$\sqrt{n}(\overline{Y} - \mu_Y) \overset{d}{\rightarrow} \mathcal{N}(0,\sigma_Y^2).$$
+<!-- $$\sqrt{n}(\overline{Y} - \mu_Y) \overset{d}{\rightarrow} \mathcal{N}(0,\sigma_Y^2).$$ -->
 
-We say that $\sqrt{n}(\overline{Y} - \mu_Y)$ **converges in distribution** to the normal distribution $\mathcal{N}(0,\sigma_Y^2)$
+<!-- We say that $\sqrt{n}(\overline{Y} - \mu_Y)$ **converges in distribution** to the normal distribution $\mathcal{N}(0,\sigma_Y^2)$ -->
 
-</div>
+<!-- </div> -->
 
 # Summary
 
